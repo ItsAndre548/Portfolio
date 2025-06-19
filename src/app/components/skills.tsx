@@ -27,7 +27,7 @@ type SkillsProps = {
 
 export default function Skills({ skills = ['React', 'TypeScript', 'Tailwind', 'SASS', 'Next.js', 'LIQUID'] }: SkillsProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
   const [itemsPerView, setItemsPerView] = useState(1);
 
   // Responsividade
@@ -49,8 +49,6 @@ export default function Skills({ skills = ['React', 'TypeScript', 'Tailwind', 'S
 
   // Auto-play
   useEffect(() => {
-    if (!isAutoPlaying) return;
-
     const interval = setInterval(() => {
       setCurrentIndex((prev) => {
         const maxIndex = Math.max(0, skills.length - itemsPerView);
@@ -59,7 +57,7 @@ export default function Skills({ skills = ['React', 'TypeScript', 'Tailwind', 'S
     }, 2000); //delay
 
     return () => clearInterval(interval);
-  }, [isAutoPlaying, skills.length, itemsPerView]);
+  }, [skills.length, itemsPerView]);
 
   const goToPrevious = () => {
     setCurrentIndex((prev) => {
@@ -79,10 +77,6 @@ export default function Skills({ skills = ['React', 'TypeScript', 'Tailwind', 'S
     setCurrentIndex(index);
   };
 
-  const toggleAutoPlay = () => {
-    setIsAutoPlaying(!isAutoPlaying);
-  };
-
   const maxIndex = Math.max(0, skills.length - itemsPerView);
 
   return (
@@ -92,6 +86,7 @@ export default function Skills({ skills = ['React', 'TypeScript', 'Tailwind', 'S
       </p>
       
       <div className="relative max-w-[900px] mx-auto">
+
         {/* Carousel Container */}
         <div className="overflow-hidden rounded-lg">
           <div 
