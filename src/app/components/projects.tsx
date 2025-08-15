@@ -12,13 +12,13 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, technologies, link }) => {
   return (
-    <div className="bg-white hover:transition-transform duration-500 hover:scale-105  rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+    <div className="bg-white h-32 hover:h-72 hover:transition-transform duration-500 group rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
       <a href={link} target='blank'>
-        <div className="relative h-48 bg-gray-100">
+        <div className="relative bg-gray-100">
         <img 
           src={image} 
           alt={title}
-          className="w-full h-full object-cover"
+          className="w-full h-0 group-hover:h-40 object-cover"
         />
       </div>
       
