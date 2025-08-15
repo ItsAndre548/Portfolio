@@ -12,13 +12,13 @@ export default function Hero() {
             </h2>
         </div>
         <div className="h-full flex justify-items-center align-center">
-            {/* <img
+            <img
             className="rounded-full"
             src="/me2.png"
             width={451}
             height={451}
             alt="André"
-        /> */}
+        />
         </div>
         
     </div>
